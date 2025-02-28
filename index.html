@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AchievePlus</title>
+
+  <!-- Favicon and related icons from favicon_io folder -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  
+  <!-- Fallback for older browsers -->
+  <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+
+  <!-- CSS file link  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+Pro:wght@600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <img src="logo-removebg-preview.png" class="nav-logo" height="50px" width="80px"> <!-- Logo is outside navbar -->
+
+  
+      <div class="overlay" data-overlay></div>
+  
+      <!-- Logo in landing page is enough, remove from navbar -->  
+      <nav class="navbar" data-navbar>
+  
+        <div class="navbar-top">
+          <!-- Removed ACHIEVE+ from here -->
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+  
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-navbar-link>Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-navbar-link>About</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#features" class="navbar-link" data-navbar-link>Features</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#team" class="navbar-link" data-navbar-link>Meet Our Team</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#feedback" class="navbar-link" data-navbar-link>Contact Us</a>
+          </li>
+        </ul>
+  
+      </nav>
+  
+      <a href="#quote" class="btn">
+        <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+        <span>Get A Quote</span>
+      </a>      
+  
+      <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+  
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h2>
+              Want to earn rewards while boosting productivity?
+            </h2>
+
+
+            <h1 class="new">ACHIEVE+</h1>
+            <div class="hero-content fade-up">
+            <span class="hero-badge">Revolutionize Your Team's Productivity</span>
+            </div>
+
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="Team.webp" width="800" height="250" loading="lazy" alt="hero-banner"
+              class="w-100 banner-animation">
+          </figure>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section id="about" class="about-section container">
+        <div class="about-content card">
+          <h2 class="h2 section-title underline">Problem</h2>
+          <p class="about-text">
+            Traditional task management systems often fail to keep employees engaged and motivated. Employees may struggle with procrastination, lack of incentives, and burnout, leading to decreased productivity.
+          </p>
+        </div>
+        <div class="about-content card">
+          <h2 class="h2 section-title underline">Our Solution</h2>
+          <p class="about-text">
+            Achieve+ transforms task management into an engaging and rewarding experience through gamification. Employees earn points, unlock achievements, and receive rewards for completing tasks efficiently. Features like burnout prevention, leaderboards, and real-time analytics ensure sustained productivity and motivation.
+          </p>
+        </div>
+      </section>  
+      
+      <!-- 
+        - #FEATURES
+      -->
+
+      <section class="section features" id="features">
+        <div class="container">
+
+          <h2 class="h2 section-title underline animate-on-scroll">Our Features</h2>
+
+
+          <ul class="features-list">
+
+            <li>
+              <div class="features-card">
+                <div class="icon">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </div>
+                <div class="content">
+                  <h3 class="h3 title">Task Asssigning and Completion</h3>
+                  <p class="text">
+                    Assign, track, and complete tasks seamlessly. Stay organized and productive!
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+                <div class="icon">
+                  <ion-icon name="trending-up-outline"></ion-icon>
+                </div>
+                <div class="content">
+                  <h3 class="h3 title">Progress Analysis</h3>
+                  <p class="text">
+                    Real-time insights on task progress and performance. Stay on top of your goals!
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+                <div class="icon">
+                  <ion-icon name="trophy-outline"></ion-icon>
+                </div>
+                <div class="content">
+                  <h3 class="h3 title">Leaderboard</h3>
+                  <p class="text">
+                    Compete, climb the ranks, and get recognized for your achievements!
+                  </p>
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+
+          <figure class="features-banner">
+            
+          </figure>
+
+          <ul class="features-list">
+
+            <li>
+              <div class="features-card">
+                <div class="icon">
+                  <ion-icon name="gift-outline"></ion-icon>
+                </div>
+                <div class="content">
+                  <h3 class="h3 title">Reward Store</h3>
+                  <p class="text">
+                    Earn points for tasks and redeem exciting rewards. Work hard, get rewarded!
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+                <div class="icon">
+                  <ion-icon name="ribbon-outline"></ion-icon>
+                </div>
+                <div class="content">
+                  <h3 class="h3 title">Rewards and Achievements</h3>
+                  <p class="text">
+                    Unlock badges, earn points, and celebrate every milestone!
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+                <div class="features-card">
+                  <div class="icon">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                  </div>
+                  <div class="content">
+                    <h3 class="h3 title">Break Notifications</h3>
+                    <p class="text">
+                      Stay refreshed with timely water and stretch break reminders!
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #QUOTE
+      -->
+      <section class="quote-section" id="quote">
+        <div class="container">
+          <figure class="quote-image">
+            <!-- The image is responsive by default -->
+            <img src="WebApplication.PNG" alt="Book a Session" width="70px" height="30px"/>
+            
+            <figcaption class="quote-overlay">
+              <h2 class="h2 section-title">Book a Session with Us</h2>
+              <p class="quote-text">
+                Discover how Achieve+ can revolutionize your workflow. Book a session with our experts for a personalized demo, or watch our demo video to see the magic in action.
+              </p>
+              <div class="quote-buttons">
+                <a
+                  href="AchievePlus.mp4"
+                  class="btn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Watch Demo Video
+                </a>
+                <a
+                  href="mailto:achieveplus01@gmail.com"
+                  class="btn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Book a Session
+                </a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+
+        <!-- 
+      - #TEAM
+    -->
+
+      <section class="team-section" id="team">
+        <div class="container">
+          <h2 class="h2 section-title underline">Meet Our Team</h2>
+
+          <div class="team-list">
+
+            <div class="team-card">
+              <img src="Pasindu.png" alt="Team Member 1" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Pasindu Ravisara</h3>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="Shevon.jpeg" alt="Team Member 2" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Shevon Kahandawita</h3>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="Devdun.png" alt="Team Member 3" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Devdun Fernando</h3>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="Minthaj.png"alt="Team Member 4" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Minthaj Ameer</h3>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="Nadishi.jpg" alt="Team Member 5" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Nadishi Christina</h3>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="Nadini.png" alt="Team Member 6" class="team-img">
+              <div class="team-info">
+                <h3 class="team-name">Nadini Nuwansa</h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    <!-- FEEDBACK SECTION -->
+    <section class="feedback-section" id="feedback">
+      <div class="container">
+        <h2 class="feedback-title">We Value Your Feedback</h2>
+        <p class="feedback-text">
+          Let us know how we're doing. Your feedback helps us improve our services.
+        </p>
+
+        <form class="feedback-form" id="feedbackForm">
+          <div class="form-group">
+            <label for="feedbackName">Name</label>
+            <input 
+              type="text" 
+              id="feedbackName" 
+              name="feedbackName" 
+              placeholder="Your Name" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="feedbackEmail">Email</label>
+            <input 
+              type="email" 
+              id="feedbackEmail" 
+              name="feedbackEmail" 
+              placeholder="Your Email" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="feedbackMessage">Message</label>
+            <textarea 
+              id="feedbackMessage" 
+              name="feedbackMessage" 
+              rows="5" 
+              placeholder="Share your thoughts with us..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+
+
+<!--
+    #FOOTER
+-->
+      <footer class="footer" id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Our Links</h4>
+              <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+                <li><a href="#">Meet us</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/share/14tfsnS3Fo/"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://www.instagram.com/achieveplus01?igsh=MTJwdjhibmhjajhnbA=="><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="https://www.linkedin.com/company/achieveplus2025"><ion-icon name="logo-linkedin"></ion-icon></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Contact Us</h4>
+              <ul class="contact-info">
+                <li>
+                  <a href="tel:+94777623119">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <span>+(94) 77 762 3119</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://g.co/kgs/qFZoefi">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <span>Informatics Institute of Technology</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:achieveplus01@gmail.com">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <span>achieveplus01@gmail.com</span>
+                  </a>
+                </li>
+              </ul>
+            </div>      
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="copyright">
+            &copy; 2025 Developed By: <a href="#" class="copyright-link">SDGP SE-74</a>
+          </p>
+        </div>
+      </footer>
+
+<!-- 
+    - #GO TO TOP
+-->
+
+  <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+    <script src="script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
+
+</body>
+</html>
