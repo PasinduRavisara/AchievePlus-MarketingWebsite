@@ -117,9 +117,7 @@
 
 /* Form Wrapper */
 .formWrapper {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(18, 18, 26, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 24px;
   padding: 40px;

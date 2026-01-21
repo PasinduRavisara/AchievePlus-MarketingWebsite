@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-/* Animated Background Orbs */
+/* Optimized Background Orbs - CSS only, GPU accelerated */
 .orbContainer {
   position: absolute;
   inset: 0;
@@ -18,45 +18,48 @@
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.6;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .orb1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, transparent 70%);
-  top: -200px;
-  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.25) 0%, transparent 70%);
+  top: -150px;
+  right: -50px;
+  animation: orbFloat1 25s ease-in-out infinite;
 }
 
 .orb2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.35) 0%, transparent 70%);
-  bottom: -150px;
-  left: -100px;
-}
-
-.orb3 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(8, 145, 178, 0.3) 0%, transparent 70%);
-  top: 40%;
-  left: 30%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, transparent 70%);
+  bottom: -100px;
+  left: -50px;
+  animation: orbFloat2 30s ease-in-out infinite;
 }
 
-/* Grid Background */
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(30px, -20px, 0); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-20px, 20px, 0); }
+}
+
+/* Grid Background - simplified */
 .gridBg {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  opacity: 0.5;
 }
 
 .container {
@@ -95,12 +98,12 @@
   height: 8px;
   background: #00d4ff;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /* Title */
@@ -142,12 +145,12 @@
 .brandOutline {
   color: transparent;
   -webkit-text-stroke: 2px rgba(0, 212, 255, 0.6);
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .brandName:hover .brandOutline {
   -webkit-text-stroke: 2px #00d4ff;
-  text-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+  text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
 }
 
 .brandPlus {
@@ -161,7 +164,7 @@
 .brandGlow {
   position: absolute;
   inset: -20px;
-  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.2) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }
@@ -195,12 +198,17 @@
   font-weight: 600;
   border-radius: 9999px;
   text-decoration: none;
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
 }
 
 .ctaPrimary svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .ctaPrimary:hover svg {
@@ -218,7 +226,7 @@
   font-weight: 600;
   border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .ctaSecondary:hover {
@@ -238,10 +246,9 @@
 .imageGlow {
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(20, 184, 166, 0.3));
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(20, 184, 166, 0.2));
   border-radius: 22px;
   z-index: -1;
-  filter: blur(20px);
 }
 
 .heroImage {
@@ -254,7 +261,7 @@
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 10, 15, 0.8) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(10, 10, 15, 0.7) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -287,6 +294,12 @@
   height: 8px;
   background: rgba(0, 212, 255, 0.8);
   border-radius: 2px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
 }
 
 /* Responsive */
@@ -318,5 +331,15 @@
   
   .scrollIndicator {
     display: none;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .orb1, .orb2 {
+    animation: none;
+  }
+  .badgeDot, .scrollWheel {
+    animation: none;
   }
 }
