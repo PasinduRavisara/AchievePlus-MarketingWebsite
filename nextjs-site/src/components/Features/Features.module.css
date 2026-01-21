@@ -126,14 +126,32 @@
 .cardGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  border-radius: 24px;
+  overflow: hidden;
   pointer-events: none;
 }
 
-.card:hover .cardGlow {
+.cardGlow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.1), transparent 30%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: none;
+}
+
+.card:hover .cardGlow::before {
   opacity: 1;
+  animation: cardShine 3s linear infinite;
+}
+
+@keyframes cardShine {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Icon */
@@ -153,7 +171,8 @@
 
 .card:hover .iconWrapper {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(20, 184, 166, 0.15) 100%);
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 /* Card Content */

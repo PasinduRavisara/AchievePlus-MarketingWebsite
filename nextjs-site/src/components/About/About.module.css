@@ -54,7 +54,11 @@
   padding: 40px;
   border-radius: 24px;
   border: 1px solid;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: translateY(-8px);
 }
 
 .iconWrapper {
@@ -65,6 +69,12 @@
   height: 64px;
   border-radius: 16px;
   margin-bottom: 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
 }
 
 .cardTitle {
