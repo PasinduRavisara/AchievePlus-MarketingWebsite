@@ -1,9 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Quote.module.css';
 
 export default function Quote() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="quote" className={styles.quote}>
       <div className={styles.container}>
@@ -69,10 +72,8 @@ export default function Quote() {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              <motion.a
-                href="/assets/AchievePlus.mp4"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => setIsModalOpen(true)}
                 className={styles.btnPrimary}
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
@@ -81,7 +82,7 @@ export default function Quote() {
                   <path d="M8 5L15 10L8 15V5Z" fill="currentColor"/>
                 </svg>
                 Watch Demo
-              </motion.a>
+              </motion.button>
               
               <motion.a
                 href="mailto:achieveplus01@gmail.com"
@@ -123,6 +124,49 @@ export default function Quote() {
           </div>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div 
+            className={styles.modalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div 
+              className={styles.modalContent}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className={styles.closeButton}
+                onClick={() => setIsModalOpen(false)}
+                aria-label="Close modal"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <div className={styles.videoWrapper}>
+                <video 
+                  src="/assets/AchievePlus.mp4" 
+                  controls 
+                  autoPlay 
+                  className={styles.videoPlayer}
+                  poster="/assets/WebApplication.PNG"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
