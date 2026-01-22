@@ -85,7 +85,7 @@ export default function Quote() {
               </motion.button>
               
               <motion.a
-                href="mailto:achieveplus01@gmail.com"
+                href="#contact"
                 className={styles.btnSecondary}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
