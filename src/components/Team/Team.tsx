@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import styles from './Team.module.css';
 
 const teamMembers = [
-  { name: 'Pasindu Ravisara', image: '/team/Pasindu.png' },
-  { name: 'Shevon Kahandawita', image: '/team/Shevon.jpeg' },
-  { name: 'Devdun Fernando', image: '/team/Devdun.png' },
-  { name: 'Minthaj Ameer', image: '/team/Minthaj.png' },
-  { name: 'Nadishi Christina', image: '/team/Nadishi.jpg' },
-  { name: 'Nadini Nuwansa', image: '/team/Nadini.png' },
+  { name: 'Pasindu Ravisara', role: 'Team Leader', image: '/team/Pasindu.png' },
+  { name: 'Shevon Kahandawita', role: 'Project Manager', image: '/team/Shevon.jpeg' },
+  { name: 'Devdun Fernando', role: 'Developer', image: '/team/Devdun.png' },
+  { name: 'Minthaj Ameer', role: 'QA Engineer', image: '/team/Minthaj.png' },
+  { name: 'Nadishi Christina', role: 'Developer', image: '/team/Nadishi.jpg' },
+  { name: 'Nadini Nuwansa', role: 'Developer', image: '/team/Nadini.png' },
 ];
 
 const containerVariants = {
@@ -87,7 +87,7 @@ export default function Team() {
                 </div>
                 <div className={styles.info}>
                   <h3 className={styles.name}>{member.name}</h3>
-                  <span className={styles.role}>Developer</span>
+                  <span className={styles.role}>{member.role}</span>
                 </div>
               </div>
               <div className={styles.cardBorder} />
