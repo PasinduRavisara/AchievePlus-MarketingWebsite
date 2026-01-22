@@ -143,22 +143,17 @@
 }
 
 .brandOutline {
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(0, 212, 255, 0.6);
+  color: #ffffff;
   transition: all 0.4s ease;
 }
 
 .brandName:hover .brandOutline {
-  -webkit-text-stroke: 2px #00d4ff;
-  text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+  text-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
 }
 
 .brandPlus {
-  background: linear-gradient(135deg, #00d4ff 0%, #14b8a6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-left: 4px;
+  color: #00d4ff;
+  margin-left: 8px;
 }
 
 .brandGlow {

@@ -48,7 +48,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h2 className={styles.brandName}>
-              <span className={styles.brandOutline}>ACHIEVE</span>
+              <span className={styles.brandOutline}>Achieve</span>
               <span className={styles.brandPlus}>+</span>
             </h2>
             <div className={styles.brandGlow} />

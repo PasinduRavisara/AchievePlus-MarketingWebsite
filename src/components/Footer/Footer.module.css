@@ -54,14 +54,16 @@
   }
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  /* font-family: inherited; */
+  font-size: 1.6rem;
+  font-weight: 800;
   text-decoration: none;
   margin-bottom: 16px;
+  letter-spacing: -0.03em;
 }
 
 .logoText {
@@ -69,11 +71,9 @@
 }
 
 .logoPlus {
-  background: linear-gradient(135deg, #00d4ff 0%, #14b8a6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #00d4ff;
   font-size: 1.8rem;
+  margin-left: 2px;
 }
 
 .tagline {

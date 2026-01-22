@@ -48,7 +48,7 @@ export default function Header() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className={styles.logoText}>ACHIEVE</span>
+          <span className={styles.logoText}>Achieve</span>
           <span className={styles.logoPlus}>+</span>
         </motion.a>
 

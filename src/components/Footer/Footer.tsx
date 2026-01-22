@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className={styles.brand}>
             <a href="#home" className={styles.logo}>
-              <span className={styles.logoText}>ACHIEVE</span>
+              <span className={styles.logoText}>Achieve</span>
               <span className={styles.logoPlus}>+</span>
             </a>
             <p className={styles.tagline}>
@@ -137,7 +137,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {currentYear} ACHIEVE+. Developed by{' '}
+            © {currentYear} Achieve+. Developed by{' '}
             <span className={styles.highlight}>SDGP SE-74</span>
           </p>
           <button 
