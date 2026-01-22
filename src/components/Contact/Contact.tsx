@@ -72,7 +72,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+94777623119" className={styles.contactItem}>
+              <a href="https://wa.me/94777623119" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M4 3H8L10 7L7.5 8.5C8.57 10.67 10.33 12.43 12.5 13.5L14 11L18 13V17C18 17.5523 17.5523 18 17 18C9.26801 18 3 11.732 3 4C3 3.44772 3.44772 3 4 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -84,7 +84,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://g.co/kgs/qFZoefi" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+              <a href="https://maps.app.goo.gl/xniu5BNxEYZG1Znp9" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z" stroke="currentColor" strokeWidth="1.5"/>
