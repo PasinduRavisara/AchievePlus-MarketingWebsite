@@ -51,7 +51,7 @@ export default function Team() {
         >
           <span className={styles.label}>Our Team</span>
           <h2 className={styles.title}>
-            Meet the <span className={styles.highlight}>Minds</span> Behind ACHIEVE+
+            Meet the <span className={styles.highlight}>Minds</span> Behind Achieve+
           </h2>
           <p className={styles.subtitle}>
             A passionate team of developers and designers dedicated to revolutionizing productivity.

@@ -71,7 +71,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.title}>
-            Why <span className={styles.highlight}>ACHIEVE+</span>?
+            Why <span className={styles.highlight}>Achieve+</span>?
           </h2>
           <p className={styles.subtitle}>
             We identified the core challenges in workplace productivity and built the perfect solution.
