@@ -116,19 +116,33 @@ export default function Footer() {
             <h4 className={styles.linkTitle}>Contact</h4>
             <ul className={styles.linkList}>
               <li>
-                <a href="mailto:achieveplus01@gmail.com" className={styles.link}>
+                <a 
+                  href="#contact" 
+                  className={styles.link}
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                >
                   achieveplus01@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+94777623119" className={styles.link}>
+                <a 
+                  href="https://wa.me/94777623119" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.link}
+                >
                   +(94) 77 762 3119
                 </a>
               </li>
               <li>
-                <span className={styles.linkMuted}>
+                <a 
+                  href="https://maps.app.goo.gl/xniu5BNxEYZG1Znp9" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.link}
+                >
                   Informatics Institute of Technology
-                </span>
+                </a>
               </li>
             </ul>
           </div>
