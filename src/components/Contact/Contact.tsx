@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -12,6 +13,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -23,16 +25,37 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: '', email: '', message: '' });
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setErrorMessage('');
+
+    // EmailJS Configuration
+    const SERVICE_ID = 'AchievePlus_Contact';
+    const TEMPLATE_ID = 'AchievePlus_Contact_Us';
+    const PUBLIC_KEY = 'EvNTcWB6AEHQdvBCF';
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          to_name: 'Achieve+ Team',
+          from_name: formState.name,
+          from_email: formState.email,
+          message: formState.message,
+          reply_to: formState.email,
+        },
+        PUBLIC_KEY
+      );
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormState({ name: '', email: '', message: '' });
+      
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setErrorMessage('Failed to send message. Please try again later.');
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -179,6 +202,11 @@ export default function Contact() {
                   </>
                 )}
               </motion.button>
+              {errorMessage && (
+                <p style={{ color: '#ef4444', fontSize: '0.9rem', marginTop: '1rem', textAlign: 'center' }}>
+                  {errorMessage}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
