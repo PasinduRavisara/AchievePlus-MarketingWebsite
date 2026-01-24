@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
@@ -14,6 +14,15 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsHighlighted(true);
+    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => setIsHighlighted(false), 2000);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -82,7 +91,7 @@ export default function Contact() {
 
             {/* Contact Details */}
             <div className={styles.contactDetails}>
-              <a href="mailto:achieveplus01@gmail.com" className={styles.contactItem}>
+              <a href="#" onClick={handleEmailClick} className={styles.contactItem} role="button">
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M3 4H17V16H3V4Z" stroke="currentColor" strokeWidth="1.5"/>
@@ -124,7 +133,8 @@ export default function Contact() {
 
           {/* Right Side - Form */}
           <motion.div
-            className={styles.formWrapper}
+            ref={formRef}
+            className={`${styles.formWrapper} ${isHighlighted ? styles.highlighted : ''}`}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
