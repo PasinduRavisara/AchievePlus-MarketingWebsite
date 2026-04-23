@@ -1,30 +1,32 @@
-'use client';
+"use client";
 
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import styles from './Contact.module.css';
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import styles from "./Contact.module.css";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [isHighlighted, setIsHighlighted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
   const handleEmailClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsHighlighted(true);
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     setTimeout(() => setIsHighlighted(false), 2000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
@@ -34,35 +36,35 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage('');
+    setErrorMessage("");
 
     // EmailJS Configuration
-    const SERVICE_ID = 'AchievePlus_Contact';
-    const TEMPLATE_ID = 'AchievePlus_Contact_Us';
-    const PUBLIC_KEY = 'EvNTcWB6AEHQdvBCF';
+    const SERVICE_ID = "AchievePlus_Contact";
+    const TEMPLATE_ID = "AchievePlus_Contact_Us";
+    const PUBLIC_KEY = "EvNTcWB6AEHQdvBCF";
 
     try {
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          to_name: 'Achieve+ Team',
+          to_name: "Achieve+ Team",
           from_name: formState.name,
           from_email: formState.email,
           message: formState.message,
           reply_to: formState.email,
         },
-        PUBLIC_KEY
+        PUBLIC_KEY,
       );
 
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
-      
+      setFormState({ name: "", email: "", message: "" });
+
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      setErrorMessage('Failed to send message. Please try again later.');
+      console.error("EmailJS Error:", error);
+      setErrorMessage("Failed to send message. Please try again later.");
       setIsSubmitting(false);
     }
   };
@@ -81,51 +83,92 @@ export default function Contact() {
           >
             <span className={styles.label}>Contact Us</span>
             <h2 className={styles.title}>
-              We Value Your 
+              We Value Your
               <span className={styles.highlight}> Feedback</span>
             </h2>
             <p className={styles.description}>
-              Let us know how we&apos;re doing. Your feedback helps us improve our services 
-              and build a better product for you.
+              Let us know how we&apos;re doing. Your feedback helps us improve
+              our services and build a better product for you.
             </p>
 
             {/* Contact Details */}
             <div className={styles.contactDetails}>
-              <a href="#" onClick={handleEmailClick} className={styles.contactItem} role="button">
+              <a
+                href="#"
+                onClick={handleEmailClick}
+                className={styles.contactItem}
+                role="button"
+              >
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M3 4H17V16H3V4Z" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M3 4L10 10L17 4" stroke="currentColor" strokeWidth="1.5"/>
+                    <path
+                      d="M3 4H17V16H3V4Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M3 4L10 10L17 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
                   </svg>
                 </div>
                 <div>
                   <span className={styles.contactLabel}>Email</span>
-                  <span className={styles.contactValue}>achieveplus01@gmail.com</span>
+                  <span className={styles.contactValue}>
+                    achieveplus01@gmail.com
+                  </span>
                 </div>
               </a>
 
-              <a href="https://wa.me/94777623119" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+              <a
+                href="https://wa.me/94707556424"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactItem}
+              >
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 3H8L10 7L7.5 8.5C8.57 10.67 10.33 12.43 12.5 13.5L14 11L18 13V17C18 17.5523 17.5523 18 17 18C9.26801 18 3 11.732 3 4C3 3.44772 3.44772 3 4 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M4 3H8L10 7L7.5 8.5C8.57 10.67 10.33 12.43 12.5 13.5L14 11L18 13V17C18 17.5523 17.5523 18 17 18C9.26801 18 3 11.732 3 4C3 3.44772 3.44772 3 4 3Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
                 <div>
                   <span className={styles.contactLabel}>Phone</span>
-                  <span className={styles.contactValue}>+(94) 77 762 3119</span>
+                  <span className={styles.contactValue}>+(94) 70 755 6424</span>
                 </div>
               </a>
 
-              <a href="https://maps.app.goo.gl/xniu5BNxEYZG1Znp9" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+              <a
+                href="https://maps.app.goo.gl/xniu5BNxEYZG1Znp9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactItem}
+              >
                 <div className={styles.contactIcon}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M10 2C6.134 2 3 5.134 3 9C3 13.866 10 18 10 18C10 18 17 13.866 17 9C17 5.134 13.866 2 10 2Z" stroke="currentColor" strokeWidth="1.5"/>
+                    <path
+                      d="M10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M10 2C6.134 2 3 5.134 3 9C3 13.866 10 18 10 18C10 18 17 13.866 17 9C17 5.134 13.866 2 10 2Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
                   </svg>
                 </div>
                 <div>
                   <span className={styles.contactLabel}>Location</span>
-                  <span className={styles.contactValue}>Informatics Institute of Technology</span>
+                  <span className={styles.contactValue}>
+                    Informatics Institute of Technology
+                  </span>
                 </div>
               </a>
             </div>
@@ -134,7 +177,7 @@ export default function Contact() {
           {/* Right Side - Form */}
           <motion.div
             ref={formRef}
-            className={`${styles.formWrapper} ${isHighlighted ? styles.highlighted : ''}`}
+            className={`${styles.formWrapper} ${isHighlighted ? styles.highlighted : ""}`}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -142,7 +185,9 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.formLabel}>Name</label>
+                <label htmlFor="name" className={styles.formLabel}>
+                  Name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -156,7 +201,9 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.formLabel}>Email</label>
+                <label htmlFor="email" className={styles.formLabel}>
+                  Email
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -170,7 +217,9 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.formLabel}>Message</label>
+                <label htmlFor="message" className={styles.formLabel}>
+                  Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -199,7 +248,13 @@ export default function Contact() {
                 ) : isSubmitted ? (
                   <>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M4 10L8 14L16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path
+                        d="M4 10L8 14L16 6"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                     Sent Successfully!
                   </>
@@ -207,13 +262,26 @@ export default function Contact() {
                   <>
                     Send Message
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path
+                        d="M4 10H16M16 10L11 5M16 10L11 15"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </>
                 )}
               </motion.button>
               {errorMessage && (
-                <p style={{ color: '#ef4444', fontSize: '0.9rem', marginTop: '1rem', textAlign: 'center' }}>
+                <p
+                  style={{
+                    color: "#ef4444",
+                    fontSize: "0.9rem",
+                    marginTop: "1rem",
+                    textAlign: "center",
+                  }}
+                >
                   {errorMessage}
                 </p>
               )}
